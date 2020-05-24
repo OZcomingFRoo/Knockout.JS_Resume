@@ -2,6 +2,9 @@ $(function () {
     // ================================ Regular obsevables ================================ //
     function viewModel() {
         // ============== Header Info ============== //
+        // Can contain either strings, numbers or datetime.
+        this.OtherInfo = ko.observableArray(["Languages I know: Nihongo, Hebrew, english",
+            "Goal: To be a Chef","Favorite things to watch: Anime","Things I like: Meat and vegtables", "Things I dislike todo: Dancing and singing"]);
         this.Title = ko.observable("Knockout.JS - Resume project");
         this.Profession = ko.observable("Software Developer");
         this.GeneralInfo = {
@@ -76,7 +79,7 @@ $(function () {
             let desc = knowledge.Desc();
             let newArr = ko.utils.arrayFilter(this.Knowledge(), (item) => item.Desc() !== desc);
             this.Knowledge(newArr);
-            this.SelectCategory({ Id : ko.observable(categId)});
+            this.SelectCategory({ Id: ko.observable(categId) });
         };
         this.DeleteCategory = (category) => {
             let id = category.Id();
@@ -84,7 +87,7 @@ $(function () {
             let newCategories = ko.utils.arrayFilter(this.Categories(), (item) => item.Id() !== id);
             this.Knowledge(newKnowledge);
             this.Categories(newCategories);
-            this.SelectCategory({ Id : ko.observable(0)});
+            this.SelectCategory({ Id: ko.observable(0) });
         };
     };
     ko.applyBindings(new viewModel());

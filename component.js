@@ -1,11 +1,9 @@
 ko.components.register('footer-comp', {
-    viewModel: function () {
-        // Data: value is either null, 'like', or 'dislike'
-
-        // Behaviors
+    viewModel: function (params) {
+        this.otherInfo = ko.observableArray(params.arr()); // Must be a knockout array observable
     },
     template:
-        '<footer>\
-            イノチ　オカミ\
+        '<footer data-bind="foreach:otherInfo">\
+            <div data-bind="text: $data"></div> <b>&nbsp; || &nbsp;</b> \
         </footer>'
 });
