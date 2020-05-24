@@ -1,0 +1,70 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+header, main, footer {
+    border: solid thin;
+}
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    width: 100%;
+    height: 25%;
+    border-color: red;
+    justify-content: space-evenly;
+}
+
+header>div {
+    margin: auto;
+    height: 100%;
+    text-align: center;
+}
+
+header>div>h1, h3 {
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 64%;
+    border-color: green;
+    justify-content: space-between;
+}
+
+main h1, h2, h3 {
+    text-align: center;
+}
+
+main>section {
+    border: thin solid orange;
+    height: 100%;
+    display: block;
+    width: 47%;
+}
+
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 10%;
+    border-color: blue;
+}
+
+.editable:hover {
+    cursor: crosshair;
+    color: red;
+    transition: color 250ms linear;
+}
+
+.KnowledgeSection {
+    display: block;
+    width: 47%;
+}

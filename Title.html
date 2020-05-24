@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="jQuery.js"></script>
+    <script src="knockout.js"></script>
+    <script src="colorCLass.js"></script>
+    <script src="Title.js"></script>
+    <script src="customBinding.js"></script>
+    <link rel="stylesheet" href="Title.css">
+</head>
+
+<body>
+    <header>
+        <div>
+            <h1 class="editable" data-bind="text: GeneralInfo.FullName, SimpleEdit: GeneralInfo.FullName"></h1>
+            <h3 data-bind="text: GeneralInfo.FirstName"></h3>
+            <h3 data-bind="text: GeneralInfo.LastName"></h3>
+        </div>
+        <div>
+            <h1 class="editable" data-bind="text: Title, SimpleEdit: Title"></h1>
+        </div>
+        <div>
+            <h1 class="editable" data-bind="text: Profession , SimpleEdit: Profession"></h1>
+        </div>
+    </header>
+    <main>
+        <!-- Knockledge -->
+        <section>
+            <h2>Knockledge (Languages, Frameworks etc...)</h2>
+            <!-- Category -->
+            <div style="display:flex">
+                <div class="KnowledgeSection">
+                    <h3>Categories</h3>
+                    <ul data-bind="foreach: Categories, AddItem: $root.AddCategory">
+                        <li>
+                            <button data-bind="text: $data.Desc , click: $root.SelectCategory"></button>
+                            <button data-bind="visible: $data.Id,  click: $root.DeleteCategory"> Delete Category
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Knowledge ( Category's items) -->
+                <div class="KnowledgeSection">
+                    <h3>Knowledge</h3>
+                    <ul data-bind="foreach: KnockledgeToDisplay, AddItem: $root.AddKnockledge">
+                        <li>
+                            <span data-bind="text: $data.Desc"></span>
+                            <button data-bind="click: $root.DeleteKnockledge">Delete</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+        </section>
+        <!-- Links -->
+        <section>
+            <h2>Links</h2>
+            <ul data-bind="foreach: LinksToProfile, AddItem: $root.AddLink ">
+                <li style="font-size: 1.2em;">
+                    <a data-bind="text: $data.text , attr: { href : $data.link }"></a>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+
+</html>
