@@ -68,3 +68,9 @@ footer {
     display: block;
     width: 47%;
 }
+
+/* Footer CSS */
+footer{
+    padding:0.25em;
+    box-sizing: border-box;
+}
